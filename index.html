@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heaven Academy</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <header class="header">
+    <div class="container">
+        <a href="#" class="logo">HEAVEN ACADEMY</a>
+        <nav class="nav" id="nav-menu">
+            <ul>
+                <li><a href="#about" class="nav-link">Про школу</a></li>
+                <li><a href="#courses" class="nav-link">Наші курси</a></li>
+                <li><a href="#process" class="nav-link">Процес</a></li>
+                <li><a href="#contact" class="nav-link">Контакти</a></li>
+            </ul>
+        </nav>
+        <button class="burger-menu" id="burger-menu" aria-label="Відкрити меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+    <main>
+       <section class="hero">
+    <div class="hero-content"> <h1>Навчання, після якого масаж стає мистецтвом</h1>
+        <button class="btn">Обрати курс</button>
+    </div>
+</section>
+
+        <section id="about" class="about">
+            <div class="container grid">
+                <div class="about-image">
+                    <img src="img/1.jpg" alt="Фото засновниці школи">
+                </div>
+                <div class="about-content">
+                    <h2>Про школу</h2>
+                    <p>У школі Heaven ми навчаємо не просто технікам. Ми передаємо наше бачення масажу як мистецтва. Наша місія — навчити вас не тільки робити масаж, а й розуміти тіло, емоції та енергію, щоб створювати унікальний досвід для кожного клієнта.</p>
+                    <button class="btn-outline">Дізнатися більше про школу</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="courses">
+            <div class="container">
+                <h2>Наші курси</h2>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="img/1.jpg" alt="Курс 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/1.jpg" alt="Курс 2">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/1.jpg" alt="Курс 3">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/1.jpg" alt="Курс 4">
+                        </div>
+                         <div class="swiper-slide">
+                            <img src="img/1.jpg" alt="Курс 5">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="process">
+            <div class="container grid">
+                <div class="process-content">
+                    <h2>Як проходить навчання</h2>
+                    <ul>
+                        <li><strong>Теорія:</strong> корисна й актуальна</li>
+                        <li><strong>Практика:</strong> 80% часу</li>
+                        <li><strong>Іспит:</strong> сертифікат</li>
+                        <li><strong>Індивідуальний підхід</strong> до кожного студента</li>
+                    </ul>
+                </div>
+                <div class="process-image">
+                    <img src="img/1.jpg" alt="Процес навчання масажу">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container grid">
+                <div class="contact-info">
+                    <h2>Зв'яжіться з нами</h2>
+                    <p><strong>Наші контакти</strong></p>
+                    <p>📍 м. Київ, вул. Хрещатик, 1</p>
+                    <p>📞 +38 (099) 123-45-67</p>
+                    <p>✉️ info@heaven.com</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Ваше ім'я" required>
+                    <input type="email" placeholder="Ваш Email" required>
+                    <textarea placeholder="Ваше повідомлення" rows="4"></textarea>
+                    <button type="submit" class="btn">Надіслати</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="logo">HEAVEN ACADEMY</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
