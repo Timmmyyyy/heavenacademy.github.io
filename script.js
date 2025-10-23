@@ -1,26 +1,37 @@
-// Ініціалізація слайдера Swiper.js
+// === ОНОВЛЕНА ІНІЦІАЛІЗАЦІЯ СЛАЙДЕРА SWIPER.JS ===
 const swiper = new Swiper('.mySwiper', {
-    direction: 'vertical',
-    effect: 'cards',
-    grabCursor: true,
     
-    // === ОСЬ ГОЛОВНЕ ВИПРАВЛЕННЯ ===
-    // 'loop: true' ламає логіку ефекту 'cards' з малою кількістю слайдів.
-    // 'loop: false' змусить його працювати коректно: від початку до кінця.
-    loop: false, 
-    // ==================================
-
+    // --- 1. Налаштування за замовчуванням (для мобільних) ---
+    direction: 'horizontal', // Горизонтальний напрямок
+    effect: 'slide',         // Звичайний ефект
+    loop: true,              // Можемо увімкнути loop для горизонтального
+    grabCursor: true,
+    slidesPerView: 1,      // Показувати 1 слайд
+    spaceBetween: 30,      // Невеликий відступ між слайдами
+    
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
     },
+
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+
+    // --- 2. Налаштування для десктопу (спрацює при > 768px) ---
+    breakpoints: {
+        // Коли ширина екрану 769px або більше
+        769: {
+            direction: 'vertical', // Повертаємо вертикальний напрямок
+            effect: 'cards',     // Повертаємо ефект карток
+            loop: false,         // Вимикаємо loop (як було у вас)
+            // 'slidesPerView' і 'spaceBetween' не потрібні для ефекту 'cards'
+        }
+    }
 });
 
-// --- Логіка для Бургер-меню ---
+// --- Логіка для Бургер-меню (без змін) ---
 
 // Знаходимо потрібні елементи в HTML
 const burgerMenu = document.getElementById('burger-menu');
@@ -67,4 +78,3 @@ navLinks.forEach(link => {
         }
     });
 });
-/* Зайва дужка '}' звідси видалена */
