@@ -1,80 +1,61 @@
-// === ОНОВЛЕНА ІНІЦІАЛІЗАЦІЯ СЛАЙДЕРА SWIPER.JS ===
-const swiper = new Swiper('.mySwiper', {
-    
-    // --- 1. Налаштування за замовчуванням (для мобільних) ---
-    direction: 'horizontal', // Горизонтальний напрямок
-    effect: 'slide',         // Звичайний ефект
-    loop: true,              // Можемо увімкнути loop для горизонтального
-    grabCursor: true,
-    slidesPerView: 1,      // Показувати 1 слайд
-    spaceBetween: 30,      // Невеликий відступ між слайдами
-    
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
+// script.js — легкий та робочий
+document.addEventListener('DOMContentLoaded', function () {
+  const burger = document.getElementById('burger-menu');
+  const nav = document.getElementById('nav-menu');
 
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-
-    // --- 2. Налаштування для десктопу (спрацює при > 768px) ---
-    breakpoints: {
-        // Коли ширина екрану 769px або більше
-        769: {
-            direction: 'vertical', // Повертаємо вертикальний напрямок
-            effect: 'cards',     // Повертаємо ефект карток
-            loop: false,         // Вимикаємо loop (як було у вас)
-            // 'slidesPerView' і 'spaceBetween' не потрібні для ефекту 'cards'
-        }
-    }
-});
-
-// --- Логіка для Бургер-меню (без змін) ---
-
-// Знаходимо потрібні елементи в HTML
-const burgerMenu = document.getElementById('burger-menu');
-const navMenu = document.getElementById('nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-const body = document.body;
-
-// Функція для відкриття/закриття меню
-const toggleMenu = () => {
-    // Додаємо/прибираємо клас 'active' для анімації
-    burgerMenu.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    // Блокуємо/розблоковуємо прокрутку сторінки
-    body.classList.toggle('no-scroll');
-};
-
-// 1. Відкриваємо/закриваємо меню при кліку на бургер
-burgerMenu.addEventListener('click', toggleMenu);
-
-// 2. Закриваємо меню при кліку на будь-яке посилання в ньому
-navLinks.forEach(link => {
-    // Додаємо 'event' в аргументи, щоб мати доступ до події кліку
-    link.addEventListener('click', (event) => {
-
-        // Перевіряємо, чи меню відкрите
-        if (navMenu.classList.contains('active')) {
-            toggleMenu(); // Якщо так, закриваємо його
-        }
-
-        // Плавна прокрутка до секції
-        const targetId = link.getAttribute('href');
-        // Переконуємось, що посилання веде на якір (#)
-        if (targetId && targetId.startsWith('#')) {
-            // Забороняємо браузеру миттєво стрибати по якорю
-            event.preventDefault(); 
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Використовуємо setTimeout, щоб меню встигло закритись перед прокруткою
-                setTimeout(() => {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }, 300); // 300 мілісекунд
-            }
-        }
+  if (burger && nav) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      nav.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+      const expanded = burger.classList.contains('active');
+      burger.setAttribute('aria-expanded', String(expanded));
     });
+
+    // Close nav when clicking any link (mobile)
+    document.querySelectorAll('.nav .nav-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('active')) {
+          nav.classList.remove('active');
+          burger.classList.remove('active');
+          document.body.classList.toggle('no-scroll');
+          burger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // close by Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        burger.classList.remove('active');
+        document.body.classList.toggle('no-scroll');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Swiper init (carousel)
+  if (typeof Swiper !== 'undefined') {
+    const swiper = new Swiper('.mySwiper', {
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+      /* Блок breakpoints видалено, оскільки 
+        slidesPerView: 1 однаковий для всіх розмірів.
+      */
+    });
+  } else {
+    // If Swiper didn't load, hide nav buttons gracefully
+    document.querySelectorAll('.swiper-button-next, .swiper-button-prev, .swiper-pagination').forEach(n => n && (n.style.display = 'none'));
+  }
 });

@@ -1,220 +1,207 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heaven Academy</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heaven Academy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <header class="header">
+  <header class="header" role="banner">
     <div class="container">
-        <a href="#" class="logo">HEAVEN ACADEMY</a>
-        <nav class="nav" id="nav-menu">
-            <ul>
-                <li><a href="#about" class="nav-link">Про школу</a></li>
-                <li><a href="#courses" class="nav-link">Наші курси</a></li>
-                <li><a href="#process" class="nav-link">Процес</a></li>
-                <li><a href="#contact" class="nav-link">Контакти</a></li>
-            </ul>
-        </nav>
-        <button class="burger-menu" id="burger-menu" aria-label="Відкрити меню">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-</header>
+      <a href="#" class="logo">HEAVEN ACADEMY</a>
 
-    <main>
-       <section class="hero">
-    <div class="hero-content"> <h1>Навчання, після якого масаж стає мистецтвом</h1>
+      <nav class="nav" id="nav-menu" aria-label="Головна навігація">
+        <ul>
+          <li><a href="#about" class="nav-link">Про школу</a></li>
+          <li><a href="#courses" class="nav-link">Наші курси</a></li>
+          <li><a href="#process" class="nav-link">Процес</a></li>
+          <li><a href="#contact" class="nav-link">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger-menu" id="burger-menu" aria-label="Відкрити меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Навчання, після якого масаж стає мистецтвом</h1>
         <a href="#contact" class="btn nav-link">Обрати курс</a>
-    </div>
-</section>
+      </div>
+    </section>
 
-        <section id="about" class="about">
-            <div class="container grid">
-                <div class="about-image">
-                    <img src="img/1.jpg" alt="Фото засновниці школи">
-                </div>
-                <div class="about-content">
-                    <h2>Про школу</h2>
-                    <p>У школі Heaven ми навчаємо не просто технікам. Ми передаємо наше бачення масажу як мистецтва. Наша місія — навчити вас не тільки робити масаж, а й розуміти тіло, емоції та енергію, щоб створювати унікальний досвід для кожного клієнта.</p>
-                   <a href="#courses" class="btn-outline">Dізнатися більше про школу</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="courses" class="courses">
-    <div class="container">
-        <h2>Наші курси</h2>
-        
-        <div class="grid">
-            
-            <div class="courses-content">
-                <h3>Оберіть свою спеціалізацію</h3>
-                <p>Ми пропонуємо глибокі, практичні курси, що охоплюють все від класичних технік до авторських методик. Наші програми розроблені для того, щоб дати вам максимум практики.</p>
-                
-                <p>Гортайте картки, щоб побачити більше. Кожен курс - це крок до вашого професіоналізму.</p>
-            </div>
-            
-            <div class="courses-slider-wrapper">
-                
-                <div class="swiper mySwiper">
-                   <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <img src="img/1.jpg" alt="Фон для курсу" class="course-card-bg">
-                        <div class="course-card-content">
-                            <div class="course-card-header">
-                                <span class="course-card-subtitle">Індивідуальне навчання</span>
-                                <h4 class="course-card-title">Спортивний масаж</h4>
-                            </div>
-                            <div class="course-card-body">
-                                <p>Курс включає:</p>
-                                <ul>
-                                    <li>Спортивний масаж та робота з габаритними клієнтами</li>
-                                    <li>Глибокотканнинний та міофасціальний масаж</li>
-                                    <li>Масаж триггерних точок</li>
-                                    <li>Блейд терапія та робота перкуссійним пістолетом</li>
-                                </ul>
-                            </div>
-                            <div class="course-card-footer">
-                                <div class="course-card-price">
-                                    Індивідуальне навчання
-                                    <span>5 годин – 9000 грн</span>
-                                </div>
-                                <a href="#contact" class="btn btn-card nav-link">Детальніше</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <img src="img/2.jpg" alt="Фон для курсу" class="course-card-bg">
-                        <div class="course-card-content">
-                            <div class="course-card-header">
-                                <span class="course-card-subtitle">Групове навчання</span>
-                                <h4 class="course-card-title">Класичний масаж</h4>
-                            </div>
-                            <div class="course-card-body">
-                                <p>Курс включає:</p>
-                                <ul>
-                                    <li>Постановка рук та ергономіка</li>
-                                    <li>Основні прийоми (погладжування, розтирання)</li>
-                                    <li>Робота з основними зонами (спина, шия, ноги)</li>
-                                </ul>
-                            </div>
-                            <div class="course-card-footer">
-                                <div class="course-card-price">
-                                    Групове навчання
-                                    <span>20 годин – 12000 грн</span>
-                                </div>
-                                <a href="#contact" class="btn btn-card nav-link">Детальніше</a>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="swiper-slide">
-                        <img src="img/3.jpg" alt="Фон для курсу" class="course-card-bg">
-                        <div class="course-card-content">
-                            <div class="course-card-header">
-                                <span class="course-card-subtitle">Для майстрів</span>
-                                <h4 class="course-card-title">Лімфодренаж</h4>
-                            </div>
-                            <div class="course-card-body">
-                                <p>Курс включає:</p>
-                                <ul>
-                                    <li>Анатомія лімфатичної системи</li>
-                                    <li>Показання та протипоказання</li>
-                                    <li>Техніки апаратного та ручного масажу</li>
-                                </ul>
-                            </div>
-                            <div class="course-card-footer">
-                                <div class="course-card-price">
-                                    Підвищення кваліфікації
-                                    <span>10 годин – 8000 грн</span>
-                                </div>
-                                <a href="#contact" class="btn btn-card nav-link">Детальніше</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                   </div> 
-                   
-                   <div class="swiper-pagination"></div>
-
-                   </div> 
-                
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            
-            </div> 
-            </div>
-    </div>
-</section>
-
-        <section id="process" class="process">
-            <div class="container grid">
-                <div class="process-content">
-                    <h2>Як проходить навчання</h2>
-                    <ul>
-                        <li><strong>Теорія:</strong> корисна й актуальна</li>
-                        <li><strong>Практика:</strong> 80% часу</li>
-                        <li><strong>Іспит:</strong> сертифікат</li>
-                        <li><strong>Індивідуальний підхід</strong> </li>
-                    </ul>
-                </div>
-                <div class="process-image">
-                    <img src="img/1.jpg" alt="Процес навчання масажу">
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container grid">
-                <div class="contact-info">
-                    <h2>Зв'яжіться з нами</h2>
-                    <p><strong>Наші контакти</strong></p>
-                    
-                    <p><a href="https://maps.app.goo.gl/HAVHW1uvsQHbyNbt6" target="_blank" rel="noopener noreferrer">📍 м. Київ, вул. Хрещатик, 1</a></p>
-                    
-                    <p> <a href="tel:+4733378901">📞 +47 333 78 901</a></p>
-                    <p><a href="mailto:alice@example.com">✉️ alice@example.com</a></p>
-                </div>
-                
-                <form method="POST" action="https://kwesforms.com/api/f/68w15gmSXR55V7udR4Ag" class="kf-form contact-form">
-                    
-                    <input type="text" name="name" placeholder="Ваше ім'я" required>
-                    
-                    <input type="email" name="email" placeholder="Ваш Email" required>
-                    
-                     <input type="telephone" name="telephone" placeholder="Ваш телефон +380" required>
-                    
-                    <textarea name="message" placeholder="Ваше повідомлення" rows="4"></textarea>
-                    
-                    <button type="submit" class="btn">Надіслати</button>
-                </form>
-                </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <a href="#" class="logo">HEAVEN ACADEMY</a>
+    <section id="about" class="about">
+      <div class="container grid">
+        <div class="about-image">
+          <img src="img/1.jpg" alt="Фото засновниці школи">
         </div>
-    </footer>
+        <div class="about-content">
+          <h2>Про школу</h2>
+          <p>У школі Heaven ми навчаємо не просто технікам. Ми передаємо наше бачення масажу як мистецтва. Наша місія — навчити вас не тільки робити масаж, а й розуміти тіло, емоції та енергію, щоб створювати унікальний досвід для кожного клієнта.</p>
+          <a href="#courses" class="btn-outline">Дізнатися більше про школу</a>
+        </div>
+      </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
-    <script src="https://kwesforms.com/v2/kf-script.js" defer></script>
+    <section id="courses" class="courses">
+      <div class="container">
+        <h2>Наші курси</h2>
+        <div class="grid">
+          <div class="courses-content">
+            <h3>Оберіть свою спеціалізацію</h3>
+            <p>Ми пропонуємо глибокі, практичні курси, що охоплюють все від класичних технік до авторських методик. Наші програми розроблені для того, щоб дати вам максимум практики.</p>
+            <p>Гортайте картки, щоб побачити більше. Кожен курс - це крок до вашого професіоналізму.</p>
+          </div>
+
+          <div class="courses-slider-wrapper">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <img src="img/1.jpg" alt="Фон для курсу" class="course-card-bg">
+                  <div class="course-card-content">
+                    <div class="course-card-header">
+                      <span class="course-card-subtitle">Індивідуальне навчання</span>
+                      <h4 class="course-card-title">Спортивний масаж</h4>
+                    </div>
+                    <div class="course-card-body">
+                      <p>Курс включає:</p>
+                      <ul>
+                        <li>Спортивний масаж та робота з габаритними клієнтами</li>
+                        <li>Глибокотканинний та міофасціальний масаж</li>
+                        <li>Масаж триггерних точок</li>
+                        <li>Блейд терапія та робота перкуссійним пістолетом</li>
+                      </ul>
+                    </div>
+                    <div class="course-card-footer">
+                      <div class="course-card-price">Індивідуальне навчання
+                        <span>5 годин – 9000 грн</span>
+                      </div>
+                      <a href="#contact" class="btn btn-card nav-link">Детальніше</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="img/2.jpg" alt="Фон для курсу" class="course-card-bg">
+                  <div class="course-card-content">
+                    <div class="course-card-header">
+                      <span class="course-card-subtitle">Групове навчання</span>
+                      <h4 class="course-card-title">Класичний масаж</h4>
+                    </div>
+                    <div class="course-card-body">
+                      <p>Курс включає:</p>
+                      <ul>
+                        <li>Постановка рук та ергономіка</li>
+                        <li>Основні прийоми (погладжування, розтирання)</li>
+                        <li>Робота з основними зонами (спина, шия, ноги)</li>
+                      </ul>
+                    </div>
+                    <div class="course-card-footer">
+                      <div class="course-card-price">Групове навчання
+                        <span>20 годин – 12000 грн</span>
+                      </div>
+                      <a href="#contact" class="btn btn-card nav-link">Детальніше</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="img/3.jpg" alt="Фон для курсу" class="course-card-bg">
+                  <div class="course-card-content">
+                    <div class="course-card-header">
+                      <span class="course-card-subtitle">Для майстрів</span>
+                      <h4 class="course-card-title">Лімфодренаж</h4>
+                    </div>
+                    <div class="course-card-body">
+                      <p>Курс включає:</p>
+                      <ul>
+                        <li>Анатомія лімфатичної системи</li>
+                        <li>Показання та протипоказання</li>
+                        <li>Техніки апаратного та ручного масажу</li>
+                      </ul>
+                    </div>
+                    <div class="course-card-footer">
+                      <div class="course-card-price">Підвищення кваліфікації
+                        <span>10 годин – 8000 грн</span>
+                      </div>
+                      <a href="#contact" class="btn btn-card nav-link">Детальніше</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="swiper-button-prev" aria-hidden="true"></div>
+            <div class="swiper-button-next" aria-hidden="true"></div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="process">
+      <div class="container grid">
+        <div class="process-content">
+          <h2>Як проходить навчання</h2>
+          <ul>
+            <li><strong>Теорія:</strong> корисна й актуальна</li>
+            <li><strong>Практика:</strong> 80% часу</li>
+            <li><strong>Іспит:</strong> сертифікат</li>
+            <li><strong>Індивідуальний підхід</strong></li>
+          </ul>
+        </div>
+        <div class="process-image">
+          <img src="img/1.jpg" alt="Процес навчання масажу">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container grid">
+        <div class="contact-info">
+          <h2>Зв'яжіться з нами</h2>
+          <p><strong>Наші контакти</strong></p>
+          <p><a href="https://maps.app.goo.gl/HAVHW1uvsQHbyNbt6" target="_blank" rel="noopener noreferrer">📍 м. Київ, вул. Хрещатик, 1</a></p>
+          <p><a href="tel:+380000000000">📞 +38 (0xx) xxx xx xx</a></p>
+          <p><a href="mailto:alice@example.com">✉️ alice@example.com</a></p>
+        </div>
+
+        <form method="POST" action="https://kwesforms.com/api/f/68w15gmSXR55V7udR4Ag" class="kf-form contact-form">
+          <input type="text" name="name" placeholder="Ваше ім'я" required>
+          <input type="email" name="email" placeholder="Ваш Email" required>
+          <input type="tel" name="telephone" placeholder="Ваш телефон +380" required>
+          <textarea name="message" placeholder="Ваше повідомлення" rows="4"></textarea>
+          <button type="submit" class="btn">Надіслати</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="#" class="logo">HEAVEN ACADEMY</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js" defer></script>
+  <script src="https://kwesforms.com/v2/kf-script.js" defer></script>
 </body>
 </html>
