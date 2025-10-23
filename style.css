@@ -124,6 +124,9 @@ img {
     align-items: center;
     width: 100%;
 }
+.citat {
+font-weight: 500;
+}
 
 .logo {
     font-family: var(--font-body);
@@ -144,6 +147,9 @@ img {
     color: var(--light-gray);
     text-decoration: none;
     transition: color 0.3s ease;
+    display: block;
+    min-width: 130px; 
+    text-align: center;
 }
 
 .nav a:hover {
@@ -170,6 +176,8 @@ img {
 .courses, .contact, .footer {
     background-color: var(--dark-blue);
     color: var(--white);
+    position: relative; 
+    z-index: 2;         
 }
 .hero {
     color: var(--white);
@@ -199,6 +207,11 @@ img {
 
 .hero-content h1 {
     margin-bottom: 30px;
+}
+
+.about {
+    position: relative;
+    z-index: 1;
 }
 
 .about-content h2, .process-content h2, .contact-info h2 {
@@ -294,16 +307,15 @@ img {
 
 .swiper {
     width: 100%;        
-    max-width: 380px; /* Збільшив для гнучкості */
-    margin: 0 auto;   /* Центрування слайдера в контейнері */
-    height: 550px;      
-    padding: 0;       
+    max-width: 380px; 
+    margin: 0 auto;   
+    height: 580px;      
+    padding: 0 0 30px 0; 
     position: relative; 
     overflow: hidden; 
 }
 
 .swiper-slide {
-    /* width: 340px; - Прибрано, swiper сам керує шириною */
     height: 550px; 
     border-radius: 16px; 
     overflow: hidden;
@@ -319,22 +331,28 @@ img {
     z-index: 10;
 }
 
+.swiper-pagination-bullet {
+    background: var(--light-gray); 
+    opacity: 0.6; 
+}
+
 .swiper-pagination {
     bottom: 10px !important; 
 }
 
 .swiper-pagination-bullet-active {
     background-color: var(--gold) !important;
+    opacity: 1; 
 }
 
-.swiper-button-prev,
-.swiper-button-next {
+.courses-slider-wrapper .swiper-button-prev,
+.courses-slider-wrapper .swiper-button-next {
     position: absolute;
     z-index: 20; 
     cursor: pointer;
     
-    background-color: transparent;
-    border: 1px solid var(--gold);
+    background-color: transparent !important; 
+    border: 1px solid var(--gold) !important; 
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -342,40 +360,39 @@ img {
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease; 
-    top: 50%; /* Завжди по центру вертикалі */
-    transform: translateY(-50%); /* Завжди по центру вертикалі */
+    top: 50%; 
+    transform: translateY(-50%); 
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-    background-color: rgba(212, 185, 121, 0.15); 
+.courses-slider-wrapper .swiper-button-prev:hover,
+.courses-slider-wrapper .swiper-button-next:hover {
+    background-color: rgba(212, 185, 121, 0.15) !important; 
 }
 
-.swiper-button-prev::after,
-.swiper-button-next::after {
-    content: ''; 
-    font-family: none; 
-    font-size: 0;
+.courses-slider-wrapper .swiper-button-prev::after,
+.courses-slider-wrapper .swiper-button-next::after {
+    content: '' !important; 
+    display: none !important;
 }
 
-.swiper-button-prev::before {
-    content: '◄';
-    color: var(--gold);
-    font-size: 14px;
+.courses-slider-wrapper .swiper-button-prev::before {
+    content: '←' !important;
+    color: var(--gold) !important; 
+    font-size: 20px;
 }
 
-.swiper-button-next::before {
-    content: '►';
-    color: var(--gold);
-    font-size: 14px;
+.courses-slider-wrapper .swiper-button-next::before {
+    content: '→' !important;
+    color: var(--gold) !important; 
+    font-size: 20px;
 }
 
-.swiper-button-prev {
-    left: 0px; 
+.courses-slider-wrapper .swiper-button-prev {
+    left: -10px; 
 }
 
-.swiper-button-next {
-    right: 0px;
+.courses-slider-wrapper .swiper-button-next {
+    right: -10px;
 }
 
 .course-card-bg {
@@ -434,6 +451,10 @@ img {
     flex-grow: 1; 
     overflow-y: auto; 
     margin-bottom: 15px;
+    padding-top: 10px;
+    
+    -webkit-mask-image: linear-gradient(transparent 0px, black 30px, black 100%);
+    mask-image: linear-gradient(transparent 0px, black 30px, black 100%);
 }
 
 .course-card-body p {
@@ -526,16 +547,6 @@ img {
         display: block; 
     }
 
-    .burger-menu.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    .burger-menu.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .burger-menu.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
     .nav {
         position: fixed;
         top: 0;
@@ -547,6 +558,7 @@ img {
         justify-content: center;
         align-items: center;
         transition: right 0.5s ease-in-out;
+        z-index: 1000; 
     }
 
     .nav.active {
@@ -569,13 +581,14 @@ img {
 
     .courses-slider-wrapper {
         min-height: 700px; 
-        /* padding: 0; - ВИДАЛЕНО, щоб кнопки не прилипали */
     }
+}
 
-    /* ВСІ БЛОКИ .swiper, .swiper-button-prev, .swiper-button-next 
-      БУЛИ ВИДАЛЕНІ ЗВІДСИ. 
-      
-      Тепер стилі для кнопок і слайдера єдині 
-      і беруться з "mobile-first" версії (основних стилів).
-    */
+body.no-scroll .swiper-slide-active {
+    z-index: 1; 
+}
+
+body.no-scroll .courses-slider-wrapper .swiper-button-prev,
+body.no-scroll .courses-slider-wrapper .swiper-button-next {
+    z-index: 1; 
 }
