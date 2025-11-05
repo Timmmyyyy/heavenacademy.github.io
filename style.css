@@ -304,100 +304,193 @@ font-weight: 500;
     list-style-position: inside;
     padding-left: 10px;
 }
+/* ПОВНІСТЮ ОНОВЛЕНА КАРУСЕЛЬ - Заміни всі стилі каруселі на ці */
 
-/* === СТИЛІ SWIPER ПОВЕРНУТО ДО ОРИГІНАЛУ === */
-.swiper {
-    width: 100%;        
-    max-width: 380px; /* Повернуто з 100% */
-    margin: 0 auto;   
-    height: 580px;      
-    padding: 0 0 30px 0; 
+.courses-slider-wrapper {
     position: relative; 
-    overflow: hidden; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
 }
 
+.courses-content h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 2.2rem); 
+    margin-bottom: 20px;
+    color: var(--gold); 
+}
+
+.courses-content p, .courses-content li {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.courses-content ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+/* === ДЕСКТОП ВЕРСІЯ === */
+@media (min-width: 769px) {
+    .courses-slider-wrapper {
+        min-height: 650px;
+        padding: 0 60px;
+    }
+
+    .swiper {
+        width: 100%;        
+        max-width: 380px;
+        margin: 0 auto;   
+        height: 580px;      
+        padding: 0 0 30px 0;
+        overflow: visible;
+    }
+
+    .swiper-slide {
+        height: 550px;
+        transition: transform 0.3s ease;
+    }
+
+    .swiper-slide:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Стрілки видимі на десктопі */
+    .courses-slider-wrapper .swiper-button-prev,
+    .courses-slider-wrapper .swiper-button-next {
+        display: flex !important;
+    }
+}
+
+/* === МОБІЛЬНА ВЕРСІЯ === */
+@media (max-width: 768px) {
+    .courses-slider-wrapper {
+        padding: 0;
+        min-height: auto;
+        overflow: hidden;
+    }
+
+    .swiper {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 20px 0 60px 0;
+        overflow: visible;
+    }
+
+    .swiper-wrapper {
+        padding: 0 20px;
+    }
+
+    .swiper-slide {
+        height: auto;
+        width: 85% !important; /* Картка займає 85% ширини екрану */
+        max-width: 340px;
+    }
+
+    /* Ховаємо стрілки на мобілці */
+    .courses-slider-wrapper .swiper-button-prev,
+    .courses-slider-wrapper .swiper-button-next {
+        display: none !important;
+    }
+}
+
+/* === ЗАГАЛЬНІ СТИЛІ СЛАЙДІВ === */
 .swiper-slide {
-    height: 550px; 
-    border-radius: 16px; 
+    border-radius: 16px;
     overflow: hidden;
     position: relative;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
     color: var(--white);
-    z-index: 1;
-    /* width: 350px; - ВИДАЛЕНО, щоб повернути ефект карток */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    background: var(--dark-blue);
 }
 
-.swiper-slide-active {
-    z-index: 10;
+/* === ПАГІНАЦІЯ === */
+.swiper-pagination {
+    bottom: 20px !important;
+    left: 0;
+    right: 0;
 }
 
 .swiper-pagination-bullet {
-    background: var(--light-gray); 
-    opacity: 0.6; 
-}
-
-.swiper-pagination {
-    bottom: 10px !important; 
+    background: var(--white);
+    opacity: 0.5;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px !important;
+    transition: all 0.3s ease;
 }
 
 .swiper-pagination-bullet-active {
     background-color: var(--gold) !important;
-    opacity: 1; 
+    opacity: 1;
+    width: 28px;
+    border-radius: 4px;
 }
 
+/* === СТРІЛКИ НАВІГАЦІЇ (тільки десктоп) === */
 .courses-slider-wrapper .swiper-button-prev,
 .courses-slider-wrapper .swiper-button-next {
     position: absolute;
-    z-index: 20; 
+    z-index: 20;
     cursor: pointer;
-    
-    background-color: transparent !important; 
-    border: 1px solid var(--gold) !important; 
-    width: 44px;
-    height: 44px;
+    background-color: rgba(10, 25, 47, 0.8) !important;
+    border: 2px solid var(--gold) !important;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.3s ease; 
-    top: 50%; 
-    transform: translateY(-50%); 
+    transition: all 0.3s ease;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .courses-slider-wrapper .swiper-button-prev:hover,
 .courses-slider-wrapper .swiper-button-next:hover {
-    background-color: rgba(212, 185, 121, 0.15) !important; 
+    background-color: var(--gold) !important;
 }
 
 .courses-slider-wrapper .swiper-button-prev::after,
 .courses-slider-wrapper .swiper-button-next::after {
-    content: '' !important; 
     display: none !important;
 }
 
 .courses-slider-wrapper .swiper-button-prev::before {
-    content: '←' !important;
-    color: var(--gold) !important; 
-    font-size: 20px;
+    content: '←';
+    color: var(--gold);
+    font-size: 26px;
+    transition: color 0.3s ease;
 }
 
 .courses-slider-wrapper .swiper-button-next::before {
-    content: '→' !important;
-    color: var(--gold) !important; 
-    font-size: 20px;
+    content: '→';
+    color: var(--gold);
+    font-size: 26px;
+    transition: color 0.3s ease;
 }
 
-/* === ПОЗИЦІЇ КНОПОК ПОВЕРНУТО ДО ОРИГІНАЛУ === */
+.courses-slider-wrapper .swiper-button-prev:hover::before,
+.courses-slider-wrapper .swiper-button-next:hover::before {
+    color: var(--dark-blue);
+}
+
 .courses-slider-wrapper .swiper-button-prev {
-    left: -10px; /* Повернуто з 10px */
+    left: 0;
 }
 
 .courses-slider-wrapper .swiper-button-next {
-    right: -10px; /* Повернуто з 10px */
+    right: 0;
 }
 
+/* === КОНТЕНТ КАРТКИ === */
 .course-card-bg {
     position: absolute;
     top: 0;
@@ -406,123 +499,166 @@ font-weight: 500;
     height: 100%;
     object-fit: cover;
     z-index: 1;
-    filter: brightness(0.6) blur(2px);
+    filter: brightness(0.4);
 }
 
 .course-card-content {
     position: relative;
-    z-index: 2; 
-    padding: 20px;
+    z-index: 2;
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    height: 100%; 
-    
+    min-height: 520px;
     background: linear-gradient(
-        transparent 0%, 
-        rgba(10, 25, 47, 0.7) 30%, 
-        rgba(10, 25, 47, 0.9) 70%, 
+        transparent 0%,
+        rgba(10, 25, 47, 0.6) 20%,
+        rgba(10, 25, 47, 0.9) 50%,
         var(--dark-blue) 100%
     );
 }
 
+@media (max-width: 768px) {
+    .course-card-content {
+        padding: 20px;
+        min-height: 480px;
+    }
+}
+
 .course-card-header {
     text-align: center;
-    border-bottom: 1px solid var(--gold);
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    flex-shrink: 0; 
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
 }
 
 .course-card-subtitle {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 600;
     color: var(--light-gray);
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.2px;
 }
 
 .course-card-title {
     font-family: var(--font-heading);
-    font-size: 28px;
+    font-size: clamp(22px, 5vw, 26px);
     color: var(--gold);
     margin: 0;
+    line-height: 1.2;
 }
 
 .course-card-body {
-    flex-grow: 1; 
-    overflow-y: auto; 
-    margin-bottom: 15px;
-    padding-top: 10px;
-    
-    -webkit-mask-image: linear-gradient(transparent 0px, black 30px, black 100%);
-    mask-image: linear-gradient(transparent 0px, black 30px, black 100%);
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 16px;
+    padding-right: 4px;
+    max-height: 240px;
+}
+
+/* Кастомний скролбар */
+.course-card-body::-webkit-scrollbar {
+    width: 3px;
+}
+
+.course-card-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.course-card-body::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
 }
 
 .course-card-body p {
     font-weight: 700;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 15px;
+    color: var(--white);
 }
 
 .course-card-body ul {
-    list-style: disc;
-    padding-left: 20px;
-    font-size: 15px;
-    line-height: 1.6;
+    list-style: none;
+    padding-left: 0;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
 .course-card-body li {
     margin-bottom: 8px;
+    padding-left: 16px;
+    position: relative;
+}
+
+.course-card-body li::before {
+    content: '•';
+    color: var(--gold);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 16px;
 }
 
 .course-card-footer {
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .course-card-price {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 10px 15px;
+    background-color: rgba(212, 185, 121, 0.15);
+    border: 1px solid rgba(212, 185, 121, 0.4);
+    border-radius: 10px;
+    padding: 12px;
     text-align: center;
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--light-gray);
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
 .course-card-price span {
     display: block;
+    line-height: 1.4;
+}
+
+.course-card-price span:first-child {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--light-gray);
+    margin-bottom: 4px;
+}
+
+.course-card-price span:last-child {
     font-size: 18px;
     font-weight: 700;
-    color: var(--white);
+    color: var(--gold);
 }
-
-/* === ПОЧАТОК ЗМІНИ === */
-/* Новий блок коду, який стилізує "Тривалість" */
-.course-card-price span:first-child {
-    font-size: 14px; /* Робимо шрифт меншим */
-    font-weight: 400; /* Робимо шрифт тонким (normal) */
-    color: var(--light-gray); /* Робимо колір менш яскравим */
-    margin-bottom: 4px; /* Додаємо невеликий відступ знизу */
-}
-/* === КІНЕЦЬ ЗМІНИ === */
-
 
 .btn-card {
     width: 100%;
     text-align: center;
     background-color: var(--gold);
     color: var(--dark-blue);
-    border-color: var(--gold);
+    border: 2px solid var(--gold);
+    font-size: 15px;
+    padding: 12px 20px;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-card:hover {
     background-color: transparent;
     color: var(--gold);
+    transform: translateY(-2px);
 }
 
+@media (max-width: 768px) {
+    .btn-card {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+}
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;

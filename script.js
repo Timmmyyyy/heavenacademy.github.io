@@ -1,19 +1,48 @@
-// Ініціалізація слайдера Swiper.js (ПОВЕРНУТО ВАШУ ОРИГІНАЛЬНУ ВЕРСІЮ)
+// Повністю заміни ініціалізацію Swiper в script.js на це:
+
 const swiper = new Swiper('.mySwiper', {
-    direction: 'vertical', 
-    effect: 'cards',
+    // На мобілці - горизонтально, на десктопі - вертикально
+    direction: window.innerWidth > 768 ? 'vertical' : 'horizontal',
+    effect: window.innerWidth > 768 ? 'cards' : 'slide',
+    
     grabCursor: true,
     loop: false,
+    
+    // Налаштування для мобілки
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+    centeredSlides: true,
+    
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
     },
+    
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+    
+    // Різні налаштування для різних екранів
+    breakpoints: {
+        // Мобілка
+        320: {
+            direction: 'horizontal',
+            effect: 'slide',
+            slidesPerView: 'auto',
+            spaceBetween: 16,
+            centeredSlides: true,
+        },
+        // Десктоп
+        769: {
+            direction: 'vertical',
+            effect: 'cards',
+            slidesPerView: 'auto',
+            spaceBetween: 0,
+            centeredSlides: false,
+        }
+    }
 });
-
 // --- Логіка для Бургер-меню --- (Ваш оригінальний код)
 const burgerMenu = document.getElementById('burger-menu');
 const navMenu = document.getElementById('nav-menu');
