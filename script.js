@@ -1,3 +1,4 @@
+// script.js
 // Повністю заміни ініціалізацію Swiper в script.js на це:
 
 const swiper = new Swiper('.mySwiper', {
@@ -86,7 +87,7 @@ navLinks.forEach(link => {
     });
 });
 
-// === ПОЧАТОК НОВОГО КОДУ: ЛОГІКА МОДАЛЬНОГО ВІКНА ===
+// === ЛОГІКА МОДАЛЬНОГО ВІКНА ===
 
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('course-modal');
@@ -119,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Заповнюємо модальне вікно
         modalTitle.textContent = courseTitle;
-        modalImage.src = imageSrc;
+        modalImage.src = imageSrc; // Встановлюємо зображення
         modalDetails.innerHTML = detailsHtml;
         modalCourseInput.value = courseTitle; // Встановлюємо назву курсу для форми
 
@@ -155,4 +156,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-// === КІНЕЦЬ НОВОГО КОДУ ===

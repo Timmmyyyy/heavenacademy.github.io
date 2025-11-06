@@ -1,3 +1,4 @@
+/* style.css */
 :root {
     --dark-blue: #0A192F;
     --white: #FFFFFF;
@@ -8,6 +9,7 @@
     --header-height: 70px; 
 }
 
+/* --- 1. Глобальні стилі --- */
 * {
     margin: 0;
     padding: 0;
@@ -28,14 +30,33 @@ body.no-scroll {
     overflow: hidden;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 main {
     padding-top: var(--header-height);
 }
 
+section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+/* --- 2. Типографія та Лейаут --- */
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
 }
 
 h1, h2 {
@@ -47,30 +68,17 @@ h1 {
     font-size: clamp(2.5rem, 5vw, 3.5rem); 
 }
 
+.citat {
+    font-weight: 500;
+}
+
 h2 {
     font-size: clamp(2rem, 5vw, 3rem); 
     text-align: center;
     margin-bottom: 40px;
 }
 
-section {
-    padding: 80px 0;
-    background-color: var(--white);
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
+/* --- 3. Утиліти (Кнопки, Лого) --- */
 .btn, .btn-outline {
     display: inline-block;
     padding: 12px 24px;
@@ -104,6 +112,16 @@ img {
     color: var(--white);
 }
 
+.logo {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--gold);
+    text-decoration: none;
+    z-index: 1001; 
+}
+
+/* --- 4. Header & Nav --- */
 .header {
     background-color: rgba(10, 25, 47, 0.85);
     padding: 0 20px;
@@ -123,18 +141,6 @@ img {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-}
-.citat {
-font-weight: 500;
-}
-
-.logo {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 20px;
-    color: var(--gold);
-    text-decoration: none;
-    z-index: 1001; 
 }
 
 .nav ul {
@@ -173,28 +179,18 @@ font-weight: 500;
     transition: all 0.4s ease-in-out;
 }
 
-.courses, .contact, .footer {
-    background-color: var(--dark-blue);
-    color: var(--white);
-    position: relative; 
-    z-index: 2;         
-}
+/* --- 5. Секція: Hero --- */
 .hero {
     color: var(--white);
-}
-
-.hero {
     min-height: calc(100vh - var(--header-height));
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;     
     padding: 40px 20px;
-    
     background-image: 
         linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), 
-        url('img/1.jpg');
-    
+        url('img/5.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -209,82 +205,31 @@ font-weight: 500;
     margin-bottom: 30px;
 }
 
+/* --- 6. Секція: About --- */
 .about {
     position: relative;
     z-index: 1;
 }
 
-.about-content h2, .process-content h2, .contact-info h2 {
+.about-content h2 {
     text-align: left;
 }
+
 .about-content p {
     margin-bottom: 30px;
     line-height: 1.6;
 }
-.about-image img, .process-image img {
+
+.about-image img {
     border-radius: 8px;
 }
 
-.process-content ul {
-    list-style: none;
-    font-size: 18px;
-    line-height: 2;
-}
-
-.process-content li strong {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    margin-right: 10px;
-}
-
-.contact-info a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-info a:hover {
-    color: var(--gold);
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    background-color: transparent;
-    border: 1px solid var(--light-gray);
+/* --- 7. Секція: Courses (Swiper) --- */
+.courses {
+    background-color: var(--dark-blue);
     color: var(--white);
-    border-radius: 4px;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: var(--light-gray);
-}
-
-.contact-form button {
-    align-self: flex-start;
-}
-
-.footer {
-    padding: 30px 0;
-    text-align: center;
-}
-
-.courses-slider-wrapper {
     position: relative; 
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    width: 100%;
-    min-height: 650px; 
-    padding: 0 40px; 
+    z-index: 2;         
 }
 
 .courses-content h3 {
@@ -304,7 +249,6 @@ font-weight: 500;
     list-style-position: inside;
     padding-left: 10px;
 }
-/* ПОВНІСТЮ ОНОВЛЕНА КАРУСЕЛЬ - Заміни всі стилі каруселі на ці */
 
 .courses-slider-wrapper {
     position: relative; 
@@ -315,90 +259,15 @@ font-weight: 500;
     padding: 20px 0;
 }
 
-.courses-content h3 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 2.2rem); 
-    margin-bottom: 20px;
-    color: var(--gold); 
+/* Swiper: Загальні налаштування */
+.swiper {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 20px 0 60px 0;
+    overflow: visible;
 }
 
-.courses-content p, .courses-content li {
-    font-size: 17px;
-    line-height: 1.7;
-    margin-bottom: 15px;
-}
-
-.courses-content ul {
-    list-style-position: inside;
-    padding-left: 10px;
-}
-
-/* === ДЕСКТОП ВЕРСІЯ === */
-@media (min-width: 769px) {
-    .courses-slider-wrapper {
-        min-height: 650px;
-        padding: 0 60px;
-    }
-
-    .swiper {
-        width: 100%;        
-        max-width: 380px;
-        margin: 0 auto;   
-        height: 580px;      
-        padding: 0 0 30px 0;
-        overflow: visible;
-    }
-
-    .swiper-slide {
-        height: 550px;
-        transition: transform 0.3s ease;
-    }
-
-    .swiper-slide:hover {
-        transform: translateY(-5px);
-    }
-
-    /* Стрілки видимі на десктопі */
-    .courses-slider-wrapper .swiper-button-prev,
-    .courses-slider-wrapper .swiper-button-next {
-        display: flex !important;
-    }
-}
-
-/* === МОБІЛЬНА ВЕРСІЯ === */
-@media (max-width: 768px) {
-    .courses-slider-wrapper {
-        padding: 0;
-        min-height: auto;
-        overflow: hidden;
-    }
-
-    .swiper {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        padding: 20px 0 60px 0;
-        overflow: visible;
-    }
-
-    .swiper-wrapper {
-        padding: 0 20px;
-    }
-
-    .swiper-slide {
-        height: auto;
-        width: 85% !important; /* Картка займає 85% ширини екрану */
-        max-width: 340px;
-    }
-
-    /* Ховаємо стрілки на мобілці */
-    .courses-slider-wrapper .swiper-button-prev,
-    .courses-slider-wrapper .swiper-button-next {
-        display: none !important;
-    }
-}
-
-/* === ЗАГАЛЬНІ СТИЛІ СЛАЙДІВ === */
 .swiper-slide {
     border-radius: 16px;
     overflow: hidden;
@@ -409,11 +278,12 @@ font-weight: 500;
     color: var(--white);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     background: var(--dark-blue);
+    height: auto;
 }
 
-/* === ПАГІНАЦІЯ === */
+/* Swiper: Пагінація */
 .swiper-pagination {
-    bottom: 20px !important;
+    bottom: -40px;
     left: 0;
     right: 0;
 }
@@ -421,27 +291,29 @@ font-weight: 500;
 .swiper-pagination-bullet {
     background: var(--white);
     opacity: 0.5;
-    width: 8px;
-    height: 8px;
-    margin: 0 5px !important;
+    width: 10px;
+    height: 10px;
+    margin: 0 6px;
     transition: all 0.3s ease;
+    border-radius: 50%;
 }
 
-.swiper-pagination-bullet-active {
-    background-color: var(--gold) !important;
+.courses .swiper-pagination-bullet-active {
+    background-color: var(--gold);
     opacity: 1;
-    width: 28px;
-    border-radius: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
 }
 
-/* === СТРІЛКИ НАВІГАЦІЇ (тільки десктоп) === */
-.courses-slider-wrapper .swiper-button-prev,
-.courses-slider-wrapper .swiper-button-next {
+/* Swiper: Стрілки навігації */
+body .courses-slider-wrapper .swiper-button-prev,
+body .courses-slider-wrapper .swiper-button-next {
     position: absolute;
     z-index: 20;
     cursor: pointer;
-    background-color: rgba(10, 25, 47, 0.8) !important;
-    border: 2px solid var(--gold) !important;
+    background-color: rgba(10, 25, 47, 0.8);
+    border: 2px solid var(--gold);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -453,44 +325,44 @@ font-weight: 500;
     transform: translateY(-50%);
 }
 
-.courses-slider-wrapper .swiper-button-prev:hover,
-.courses-slider-wrapper .swiper-button-next:hover {
-    background-color: var(--gold) !important;
+body .courses-slider-wrapper .swiper-button-prev:hover,
+body .courses-slider-wrapper .swiper-button-next:hover {
+    background-color: var(--gold);
 }
 
-.courses-slider-wrapper .swiper-button-prev::after,
-.courses-slider-wrapper .swiper-button-next::after {
-    display: none !important;
+body .courses-slider-wrapper .swiper-button-prev::after,
+body .courses-slider-wrapper .swiper-button-next::after {
+    display: none;
 }
 
-.courses-slider-wrapper .swiper-button-prev::before {
+body .courses-slider-wrapper .swiper-button-prev::before {
     content: '←';
     color: var(--gold);
     font-size: 26px;
     transition: color 0.3s ease;
 }
 
-.courses-slider-wrapper .swiper-button-next::before {
+body .courses-slider-wrapper .swiper-button-next::before {
     content: '→';
     color: var(--gold);
     font-size: 26px;
     transition: color 0.3s ease;
 }
 
-.courses-slider-wrapper .swiper-button-prev:hover::before,
-.courses-slider-wrapper .swiper-button-next:hover::before {
+body .courses-slider-wrapper .swiper-button-prev:hover::before,
+body .courses-slider-wrapper .swiper-button-next:hover::before {
     color: var(--dark-blue);
 }
 
-.courses-slider-wrapper .swiper-button-prev {
+body .courses-slider-wrapper .swiper-button-prev {
     left: 0;
 }
 
-.courses-slider-wrapper .swiper-button-next {
+body .courses-slider-wrapper .swiper-button-next {
     right: 0;
 }
 
-/* === КОНТЕНТ КАРТКИ === */
+/* Swiper: Вміст картки */
 .course-card-bg {
     position: absolute;
     top: 0;
@@ -515,13 +387,6 @@ font-weight: 500;
         rgba(10, 25, 47, 0.9) 50%,
         var(--dark-blue) 100%
     );
-}
-
-@media (max-width: 768px) {
-    .course-card-content {
-        padding: 20px;
-        min-height: 480px;
-    }
 }
 
 .course-card-header {
@@ -558,7 +423,6 @@ font-weight: 500;
     max-height: 240px;
 }
 
-/* Кастомний скролбар */
 .course-card-body::-webkit-scrollbar {
     width: 3px;
 }
@@ -627,6 +491,15 @@ font-weight: 500;
     margin-bottom: 4px;
 }
 
+.course-card-price .old-price {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--light-gray);
+    text-decoration: line-through;
+    opacity: 0.8;
+    margin-top: 4px; 
+}
+
 .course-card-price span:last-child {
     font-size: 18px;
     font-weight: 700;
@@ -653,12 +526,264 @@ font-weight: 500;
     transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-    .btn-card {
-        padding: 14px 20px;
-        font-size: 16px;
+/* --- 8. Секція: Process --- */
+.process-content h2 {
+    text-align: left;
+}
+
+.process-content ul {
+    list-style: none;
+    font-size: 18px;
+    line-height: 2;
+}
+
+.process-content li strong {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.process-image img {
+    border-radius: 8px;
+}
+
+/* --- 9. Секція: Contact --- */
+.contact {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.contact-info h2 {
+    text-align: left;
+}
+
+.contact-info a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--gold);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 1px solid var(--light-gray);
+    color: var(--white);
+    border-radius: 4px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--light-gray);
+}
+
+.contact-form button {
+    align-self: flex-start;
+}
+
+/* --- 10. Footer --- */
+.footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 30px 0;
+    text-align: center;
+}
+
+/* --- 11. Модальне вікно --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--white);
+    color: var(--dark-blue);
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--dark-blue);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    color: var(--gold);
+}
+
+.modal-grid {
+    display: block;
+}
+
+.modal-info h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    color: var(--dark-blue);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* НОВІ СТИЛІ ДЛЯ ЗОБРАЖЕННЯ */
+.modal-image-container {
+    margin: 0 auto 25px auto;
+    text-align: center;
+}
+
+.modal-image {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modal-info h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--dark-blue);
+}
+
+.modal-info p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.modal-info ul {
+    list-style-position: inside;
+    padding-left: 0;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.modal-info li {
+    margin-bottom: 8px;
+    padding-left: 0;
+    position: relative;
+}
+
+.modal-form-container {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    margin-top: 25px;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+}
+
+.modal-form-container h4 {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--dark-blue);
+    margin-bottom: 8px;
+}
+
+.modal-form-container p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.modal-content .contact-form input,
+.modal-content .contact-form textarea {
+    background-color: var(--white);
+    border: 1px solid #ccc;
+    color: var(--dark-blue);
+}
+
+.modal-content .contact-form input::placeholder,
+.modal-content .contact-form textarea::placeholder {
+    color: #888;
+}
+
+.modal-content .contact-form button {
+    width: 100%;
+}
+
+/* --- 12. Адаптивність (Media Queries) --- */
+
+/* Планшет & Десктоп */
+@media (min-width: 769px) {
+    .courses-slider-wrapper {
+        min-height: 700px;
+        padding: 0 60px;
+    }
+
+    .swiper {
+        max-width: 380px;
+        margin: 0 auto;   
+        height: 580px;      
+        padding: 0 0 30px 0;
+    }
+
+    .swiper-slide {
+        height: 550px;
+        transition: transform 0.3s ease;
+    }
+
+    .swiper-slide:hover {
+        transform: translateY(-5px);
+    }
+
+    body .courses-slider-wrapper .swiper-button-prev,
+    body .courses-slider-wrapper .swiper-button-next {
+        display: flex;
     }
 }
+
+/* Мобільні пристрої */
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
@@ -689,10 +814,7 @@ font-weight: 500;
         text-align: center; 
     }
 
-    .courses-slider-wrapper {
-        min-height: 650px; 
-    }
-
+    /* Адаптивність: Навігація */
     .burger-menu {
         display: block; 
     }
@@ -725,12 +847,57 @@ font-weight: 500;
         font-size: 24px;
         color: var(--white);
     }
+
+    /* Адаптивність: Swiper */
+    .courses-slider-wrapper {
+        padding: 0;
+        min-height: 650px;
+        overflow: hidden;
+    }
+    
+    .swiper-wrapper {
+        padding: 0 20px;
+    }
+
+    .swiper-slide {
+        width: 85% !important;
+        max-width: 340px;
+    }
+    
+    .course-card-content {
+        padding: 20px;
+        min-height: 480px;
+    }
+    
+    .btn-card {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+
+    body .courses-slider-wrapper .swiper-button-prev,
+    body .courses-slider-wrapper .swiper-button-next {
+        display: none;
+    }
+    
+    /* Адаптивність: Модальне вікно */
+    .modal-content {
+        padding: 25px;
+    }
+
+    .modal-info h3 {
+        font-size: 1.8rem;
+    }
+
+    .modal-image {
+        max-width: 250px;
+        height: 150px;
+    }
 }
 
-@media (min-width: 769px) {
-
-    .courses-slider-wrapper {
-        min-height: 700px; 
+@media (max-width: 480px) {
+    .modal-image {
+        max-width: 200px;
+        height: 120px;
     }
 }
 
@@ -742,164 +909,3 @@ body.no-scroll .courses-slider-wrapper .swiper-button-prev,
 body.no-scroll .courses-slider-wrapper .swiper-button-next {
     z-index: 1; 
 }
-
-
-/* === ПОЧАТОК НОВИХ СТИЛІВ ДЛЯ МОДАЛЬНОГО ВІКНА === */
-
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(10, 25, 47, 0.85); /* --dark-blue з прозорістю */
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    padding: 20px;
-}
-
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-content {
-    background-color: var(--white);
-    color: var(--dark-blue);
-    border-radius: 16px;
-    padding: 30px;
-    width: 100%;
-    max-width: 900px; /* Ширина модалки */
-    max-height: 90vh; /* Макс висота */
-    overflow-y: auto;
-    position: relative;
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-}
-
-.modal-overlay.active .modal-content {
-    transform: scale(1);
-}
-
-.modal-close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    font-size: 30px;
-    line-height: 1;
-    color: var(--dark-blue);
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.modal-close-btn:hover {
-    color: var(--gold);
-}
-
-.modal-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Дві колонки */
-    gap: 30px;
-    align-items: flex-start;
-}
-
-.modal-image {
-    width: 100%;
-    border-radius: 8px;
-    margin: 15px 0;
-}
-
-.modal-info h3 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 2.2rem);
-    color: var(--gold);
-    margin-bottom: 15px;
-}
-
-.modal-info h4 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.modal-info p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.modal-info ul {
-    list-style-position: inside;
-    padding-left: 10px;
-    line-height: 1.7;
-}
-.modal-info li {
-    margin-bottom: 10px;
-}
-
-.modal-form-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    position: sticky; /* Дозволяє формі "прилипати" при прокрутці деталей */
-    top: 0;
-}
-
-.modal-form-container h4 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 10px;
-}
-.modal-form-container p {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Стилі для полів форми на білому тлі */
-.modal-content .contact-form input,
-.modal-content .contact-form textarea {
-    background-color: var(--white);
-    border: 1px solid #ccc;
-    color: var(--dark-blue); /* Темний текст */
-}
-
-.modal-content .contact-form input::placeholder,
-.modal-content .contact-form textarea::placeholder {
-    color: #888; /* Сірий плейсхолдер */
-}
-
-.modal-content .contact-form button {
-    width: 100%;
-}
-
-@media (max-width: 768px) {
-    /* ... (ваші існуючі медіа-запити) ... */
-
-    /* Адаптивність модального вікна (для телефону) */
-    .modal-grid {
-        grid-template-columns: 1fr; /* Одна колонка на мобільних */
-    }
-
-    .modal-content {
-        padding: 20px;
-        max-height: 95vh;
-    }
-
-    .modal-info h3 {
-        font-size: 1.8rem;
-    }
-    
-    .modal-form-container {
-        position: relative; /* Вимикаємо "прилипання" на мобілках */
-    }
-}
-/* === КІНЕЦЬ НОВИХ СТИЛІВ === */
